@@ -2,16 +2,17 @@ import { ReactElement } from 'react';
 
 interface NavDotsProps {
     activeDot: number;
-  }
+    totalDots: number;
+}
 
-function NavDots({ activeDot }: NavDotsProps): ReactElement {
-    console.log(activeDot);
+function NavDots({ activeDot, totalDots }: NavDotsProps): ReactElement {
     return (
-      <div className="nav-dots">
-        <div className={`nav-dot ${activeDot === 0 ? 'active' : ''}`}></div>
-        <div className={`nav-dot ${activeDot === 1 ? 'active' : ''}`}></div>
-      </div>
+        <div className="nav-dots">
+            {Array.from({ length: totalDots }).map((_, index) => (
+                <div key={index} className={`nav-dot ${activeDot === index ? 'active' : ''}`}></div>
+            ))}
+        </div>
     );
-  }
-  
-  export default NavDots;
+}
+
+export default NavDots;

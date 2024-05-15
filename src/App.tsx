@@ -6,6 +6,7 @@ import './App.css'
 
 function App() {
   const [scrolledTab, setScrolledTab] = useState<number>(0)
+  const TOTAL_TABS = 3;
 
 
   useEffect(() => {
@@ -28,7 +29,7 @@ function App() {
       ) : (
         <img src={pokaiLogo} className="logo" alt="Your Studio Logo" />
       )}
-      <NavDots key={scrolledTab} activeDot={scrolledTab} />
+      <NavDots key={scrolledTab} activeDot={scrolledTab} totalDots={TOTAL_TABS} />
     </div>
   )
 }
